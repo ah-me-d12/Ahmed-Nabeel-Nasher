@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مقدمة في الحوسبة السحابية</title>
+  <meta name="description" content="موقع تعليمي مبسط يشرح الحوسبة السحابية، النماذج، الاستخدامات، والأمن." />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#06b6d4;
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{font-family: 'Cairo', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,var(--bg),#071127); color:#e6eef6; line-height:1.6}
+    .container{max-width:1100px; margin:32px auto; padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between; gap:16px}
+    .brand{display:flex;align-items:center; gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav ul{list-style:none;display:flex;gap:14px;padding:0;margin:0}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav a:hover{color:white;background:var(--glass)}
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:26px;margin-top:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:22px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    h1{font-size:28px;margin:0;color:white}
+    p.lead{color:var(--muted);margin-top:10px}
+    .cta{display:inline-block;margin-top:16px;background:var(--accent);color:#012; padding:10px 16px;border-radius:10px;font-weight:600;text-decoration:none}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .feature{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px}
+    .sidebar h3{margin:0 0 10px 0}
+    .toc{list-style:none;padding:0;margin:0}
+    .toc li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+    section{margin-top:20px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    pre{background:#021028;padding:12px;border-radius:10px;overflow:auto;color:#d1ecf1}
+    .glossary{display:flex;flex-direction:column;gap:12px}
+    .term{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+    footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .grid-2{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">س</div>
+        <div>
+          <div style="font-weight:700">سحابة — CloudLearn</div>
+          <div style="font-size:12px;color:var(--muted)">مبادئ الحوسبة السحابية للمبتدئين</div>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#intro">المقدمة</a></li>
+          <li><a href="#models">نماذج الخدمة</a></li>
+          <li><a href="#deployment">نماذج النشر</a></li>
+          <li><a href="#security">الأمن</a></li>
+          <li><a href="#glossary">مصطلحات</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="card">
+          <h1 id="intro">مقدمة في الحوسبة السحابية</h1>
+          <p class="lead">الحوسبة السحابية هي توفير موارد حاسوبية (خوادم، تخزين، قواعد بيانات، شبكات، برامج) عبر الإنترنت بطريقة مرنة وقابلة للتوسع. تسمح للمؤسسات والأفراد بالوصول إلى موارد عند الطلب ودفع مقابل ما يستخدمونه فقط.</p>
+
+          <div class="features" aria-hidden="false">
+            <div class="feature">
+              <strong>المرونة</strong>
+              <div style="font-size:13px;color:var(--muted)">زيادة وتقليل الموارد بحسب الحاجة.</div>
+            </div>
+            <div class="feature">
+              <strong>التكلفة</strong>
+              <div style="font-size:13px;color:var(--muted)">نموذج دفع حسب الاستخدام يقلل النفقات الاستثمارية.</div>
+            </div>
+            <div class="feature">
+              <strong>التوفر والنسخ الاحتياطي</strong>
+              <div style="font-size:13px;color:var(--muted)">توزيع الخدمات يقلل فترات التوقف ويُسهل الاسترداد من الكوارث.</div>
+            </div>
+          </div>
+
+          <a class="cta" href="#models">ابدأ التعلم</a>
+
+          <section id="why">
+            <h2 style="margin-top:18px">لماذا الحوسبة السحابية مهمة؟</h2>
+            <p class="lead">تتيح للشركات التركيز على تطوير منتجاتها بدلاً من إدارة البنية التحتية. كما تدعم الابتكار السريع من خلال تجارب منخفضة التكلفة وسرعة نشر عالية.</p>
+          </section>
+        </div>
+
+        <aside class="card sidebar">
+          <h3>فهرس المحتوى</h3>
+          <ul class="toc">
+            <li><a href="#models">نماذج الخدمة (IaaS, PaaS, SaaS)</a></li>
+            <li><a href="#deployment">نماذج النشر</a></li>
+            <li><a href="#usecases">حالات الاستخدام</a></li>
+            <li><a href="#security">الأمن والامتثال</a></li>
+            <li><a href="#glossary">مصطلحات</a></li>
+          </ul>
+
+          <h3 style="margin-top:14px">روابط سريعة</h3>
+          <p style="font-size:13px;color:var(--muted)">ملاحظة: هذه صفحة تعليمية محلية. اطلب إضافة موارد وروابط خارجية عند الحاجة.</p>
+        </aside>
+      </div>
+
+      <section id="models" class="card">
+        <h2>نماذج الخدمة</h2>
+        <div class="grid-2">
+          <div>
+            <h3>IaaS — البنية التحتية كخدمة</h3>
+            <p>توفّر الخوادم الافتراضية، التخزين والشبكات كخدمة مُدارة. يناسب الفرق التي تريد تحكم كامل في بيئة التشغيل بدون الاستثمار بمراكز بيانات.</p>
+            <ul>
+              <li>مثال: إنشاء خادم افتراضي (VM)، إعداد قواعد بيانات، إدارة الشبكات).</li>
+              <li>المستخدم مسؤول عن نظام التشغيل والتطبيقات.</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>PaaS — منصة كخدمة</h3>
+            <p>توفر منصة تشغيل وتشغيل التطبيقات دون إدارة البنية الأساسية (أمثلة: runtimes, middleware).</p>
+            <ul>
+              <li>مناسب لتطوير التطبيقات بسرعة دون الاهتمام بالبنية التحتية.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <h3>SaaS — البرمجيات كخدمة</h3>
+          <p>تُقدم التطبيقات جاهزة للاستخدام عبر الإنترنت مثل البريد الإلكتروني، أدوات التعاون، أو أنظمة ERP.</p>
+        </div>
+
+        <pre><code>&lt;!-- مثال مبسّط: إنشاء موقع يستعمل خدمة IaaS --&gt;
+&lt;!-- 1. اطلب VM من مزود سحابي --&gt;
+&lt;!-- 2. ثبّت خادم ويب (Nginx/Apache) على الـ VM --&gt;
+&lt;!-- 3. انشر موقعك واستعمل DNS لتوجيه النطاق --&gt;</code></pre>
+      </section>
+
+      <section id="deployment" class="card">
+        <h2>نماذج النشر</h2>
+        <div class="grid-2">
+          <div>
+            <h3>السحابة العامة</h3>
+            <p>موارد مُدارة من قبل مزود خدمات سحابية، مشتركة بين عملاء متعددين. تكلفة منخفضة ومرونة عالية.</p>
+          </div>
+          <div>
+            <h3>السحابة الخاصة</h3>
+            <p>موارد مخصصة لمنظمة واحدة، يمكن أن تكون داخل مراكز البيانات أو مُدارة من قِبل مزود. توفر خصوصية وتحكم أعلى.</p>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <h3>الهجين والهواء المتعدد</h3>
+          <p>النهج الهجين يمزج بين العام والخاص. الهواء المتعدد يعني استخدام أكثر من مزود سحابي واحد لتجنب التبعية.</p>
+        </div>
+      </section>
+
+      <section id="usecases" class="card">
+        <h2>حالات استخدام شائعة</h2>
+        <ul>
+          <li>النسخ الاحتياطي والتعافي من الكوارث.</li>
+          <li>استضافة تطبيقات الويب والمتاجر الإلكترونية.</li>
+          <li>تحليل البيانات الكبيرة (Big Data) والتعلم الآلي.</li>
+          <li>بيئات التطوير والاختبار المرنة.</li>
+        </ul>
+      </section>
+
+      <section id="security" class="card">
+        <h2>الأمن والامتثال</h2>
+        <p>رغم أن مزودي السحابة يوفرون امن البنية الأساسية، تبقى مسؤولية الأمن مشتركة: مزود الخدمة يتحمل أمان البنية التحتية، والمستخدم مسؤول عن إعدادات الوصول، بياناته، وتكوين التطبيقات.</p>
+        <h3>نصائح عملية</h3>
+        <ol>
+          <li>استخدم إدارة الهوية والوصول (IAM).</li>
+          <li>فعّل التشفير عند الراحة وأثناء النقل.</li>
+          <li>راقب السجلات والنشاطات (logging & monitoring).</li>
+          <li>حدّث البرمجيات ونفّذ اختبارات الاختراق بانتظام.</li>
+        </ol>
+      </section>
+
+      <section id="glossary" class="card">
+        <h2>مصطلحات مهمة</h2>
+        <div class="glossary">
+          <div class="term"><strong>VM</strong> — آلة افتراضية: جهاز افتراضي يعمل داخل الخادم الفعلي.</div>
+          <div class="term"><strong>Containers</strong> — حاويات: طريقة لتشغيل التطبيقات مع اعتماد أقل على نظام التشغيل.</div>
+          <div class="term"><strong>Load Balancer</strong> — موازن تحميل: يوزع الطلبات بين خوادم متعددة لزيادة الأداء والتوفر.</div>
+        </div>
+      </section>
+
+      <section id="learn-more" class="card">
+        <h2>ماذا تتعلم بعد ذلك؟</h2>
+        <p>تعلّم إنشاء VM، نشر تطبيق ويب بسيط، استخدام قواعد البيانات السحابية، وتجربة خدمات serverless لزيادة الفهم العملي.</p>
+        <p style="font-size:13px;color:var(--muted)">هل تريد ملفًا جاهزًا للعرض (HTML) أو نسخة قابلة للطباعة؟ اطلب ذلك وسأجهزها لك.</p>
+      </section>
+
+      <footer class="card">
+        <p style="margin:0">حقوق النشر &copy; سحابة - CloudLearn • مُنشأ آليًا</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
